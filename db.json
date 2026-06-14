@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "status": "Active",
+      "role": "Admin"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "status": "Inactive",
+      "role": "Reviewer"
+    },
+    {
+      "id": 3,
+      "name": "Alice Brown",
+      "email": "alice@example.com",
+      "status": "Active",
+      "role": "Analyst"
+    },
+    {
+      "id": 4,
+      "name": "Michael Johnson",
+      "email": "michael@example.com",
+      "status": "Inactive",
+      "role": "Manager"
+    }
+  ]
+}
