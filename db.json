@@ -2,22 +2,22 @@
   "users": [
     {
       "id": 1,
-      "name": "John Doe",
-      "email": "john@example.com",
+      "name": "Chinyere Ekwekwuo",
+      "email": "chinyere@gmail.com",
       "status": "Active",
       "role": "Admin"
     },
     {
       "id": 2,
-      "name": "Jane Smith",
-      "email": "jane@example.com",
+      "name": "Joy Chinyere",
+      "email": "joy@gmail.com",
       "status": "Inactive",
       "role": "Reviewer"
     },
     {
       "id": 3,
-      "name": "Alice Brown",
-      "email": "alice@example.com",
+      "name": "Ugochinyere Adanne",
+      "email": "ugo@gmail.com",
       "status": "Active",
       "role": "Analyst"
     }
