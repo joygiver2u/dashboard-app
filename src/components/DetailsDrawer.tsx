@@ -1,44 +1,60 @@
-import { Drawer } from "@mui/material";
-import { User } from "../types/User";
+import {
+  Drawer,
+  Box,
+  Typography,
+} from "@mui/material";
 
-interface Props {
+import type { User } from "../types/User";
+
+interface DetailsDrawerProps {
   user: User | null;
 }
 
-const DetailsDrawer = ({ user }: Props) => {
+const DetailsDrawer = ({
+  user,
+}: DetailsDrawerProps) => {
   return (
     <Drawer
       anchor="right"
-      open={!!user}
+      open={user !== null}
       variant="persistent"
     >
-      <div style={{ width: "300px", padding: "20px" }}>
+      <Box sx={{ width: 300, padding: 3 }}>
+        <Typography variant="h5" gutterBottom>
+          User Details
+        </Typography>
+
         {user ? (
           <>
-            <h2>User Details</h2>
-
-            <p>
+            <Typography>
               <strong>Name:</strong> {user.name}
-            </p>
+            </Typography>
 
-            <p>
+            <Typography>
               <strong>Email:</strong> {user.email}
-            </p>
+            </Typography>
 
-            <p>
+            <Typography>
               <strong>Status:</strong> {user.status}
-            </p>
+            </Typography>
 
-            <p>
+            <Typography>
               <strong>Role:</strong> {user.role}
-            </p>
+            </Typography>
           </>
         ) : (
-          <p>Select a user.</p>
+          <Typography>
+            Select a user from the table.
+          </Typography>
         )}
-      </div>
+      </Box>
     </Drawer>
   );
 };
 
 export default DetailsDrawer;
+
+/* What this does
+If no user is selected → drawer stays closed.
+Clicking a row sends the selected user to the drawer.
+The drawer opens automatically and displays the information. */

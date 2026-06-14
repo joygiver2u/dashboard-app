@@ -2,9 +2,10 @@ import {
   PieChart,
   Pie,
   Tooltip,
+  ResponsiveContainer,
 } from "recharts";
 
-interface Props {
+interface UserStatusChartProps {
   active: number;
   inactive: number;
 }
@@ -12,21 +13,41 @@ interface Props {
 const UserStatusChart = ({
   active,
   inactive,
-}: Props) => {
+}: UserStatusChartProps) => {
   const data = [
-    { name: "Active", value: active },
-    { name: "Inactive", value: inactive },
+    {
+      name: "Active",
+      value: active,
+    },
+    {
+      name: "Inactive",
+      value: inactive,
+    },
   ];
 
   return (
-    <PieChart width={300} height={250}>
-        <Pie
+    <div
+      style={{
+        width: "100%",
+        height: 300,
+        marginTop: "30px",
+      }}
+    >
+      <h2>User Status Summary</h2>
+
+      <ResponsiveContainer>
+        <PieChart>
+          <Pie
             data={data}
             dataKey="value"
+            nameKey="name"
             outerRadius={80}
-        />
-        <Tooltip />
-    </PieChart>
+            label
+          />
+          <Tooltip />
+        </PieChart>
+      </ResponsiveContainer>
+    </div>
   );
 };
 

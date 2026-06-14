@@ -20,13 +20,6 @@
       "email": "alice@example.com",
       "status": "Active",
       "role": "Analyst"
-    },
-    {
-      "id": 4,
-      "name": "Michael Johnson",
-      "email": "michael@example.com",
-      "status": "Inactive",
-      "role": "Manager"
     }
   ]
 }

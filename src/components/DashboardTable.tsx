@@ -2,13 +2,15 @@ import {
   Table,
   TableBody,
   TableCell,
+  TableContainer,
   TableHead,
   TableRow,
+  Paper,
 } from "@mui/material";
 
-import { User } from "../types/User";
+import type { User } from "../types/User";
 
-interface Props {
+interface DashboardTableProps {
   users: User[];
   onSelectUser: (user: User) => void;
 }
@@ -16,41 +18,40 @@ interface Props {
 const DashboardTable = ({
   users,
   onSelectUser,
-}: Props) => {
+}: DashboardTableProps) => {
   return (
-    <Table>
+    <TableContainer component={Paper} sx={{ mt: 2 }}>
+      <Table>
 
-      {/* Table Header */}
-      <TableHead>
-        <TableRow>
-          <TableCell>Name</TableCell>
-          <TableCell>Email</TableCell>
-          <TableCell>Status</TableCell>
-          <TableCell>Role</TableCell>
-        </TableRow>
-      </TableHead>
-
-      {/* Table Body */}
-      <TableBody>
-        {users.map((user) => (
-          <TableRow
-            key={user.id}
-
-            // When the row is clicked,
-            // send the selected user upward.
-            onClick={() => onSelectUser(user)}
-
-            style={{ cursor: "pointer" }}
-          >
-            <TableCell>{user.name}</TableCell>
-            <TableCell>{user.email}</TableCell>
-            <TableCell>{user.status}</TableCell>
-            <TableCell>{user.role}</TableCell>
+        {/* Table Header */}
+        <TableHead>
+          <TableRow>
+            <TableCell><strong>Name</strong></TableCell>
+            <TableCell><strong>Email</strong></TableCell>
+            <TableCell><strong>Status</strong></TableCell>
+            <TableCell><strong>Role</strong></TableCell>
           </TableRow>
-        ))}
-      </TableBody>
+        </TableHead>
 
-    </Table>
+        {/* Table Body */}
+        <TableBody>
+          {users.map((user) => (
+            <TableRow
+              key={user.id}
+              hover
+              sx={{ cursor: "pointer" }}
+              onClick={() => onSelectUser(user)}
+            >
+              <TableCell>{user.name}</TableCell>
+              <TableCell>{user.email}</TableCell>
+              <TableCell>{user.status}</TableCell>
+              <TableCell>{user.role}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+
+      </Table>
+    </TableContainer>
   );
 };
 

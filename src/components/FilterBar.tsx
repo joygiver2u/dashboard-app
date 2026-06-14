@@ -1,22 +1,25 @@
 import { TextField } from "@mui/material";
-import { User } from "../types/User";
+import type { User } from "../types/User";
 
-interface Props {
+interface FilterBarProps {
   users: User[];
   onFilter: (filtered: User[]) => void;
 }
 
-const FilterBar = ({ users, onFilter }: Props) => {
-
-  // Runs whenever the user types.
+const FilterBar = ({
+  users,
+  onFilter,
+}: FilterBarProps) => {
   const handleSearch = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const value = event.target.value.toLowerCase();
+    const value =
+      event.target.value.toLowerCase();
 
-    // Filter users whose names contain the typed text.
     const filtered = users.filter((user) =>
-      user.name.toLowerCase().includes(value)
+      user.name
+        .toLowerCase()
+        .includes(value)
     );
 
     onFilter(filtered);
@@ -27,8 +30,8 @@ const FilterBar = ({ users, onFilter }: Props) => {
       label="Search User"
       variant="outlined"
       fullWidth
+      sx={{ marginBottom: 2 }}
       onChange={handleSearch}
-      style={{ marginBottom: "20px" }}
     />
   );
 };
